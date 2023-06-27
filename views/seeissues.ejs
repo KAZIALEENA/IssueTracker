@@ -1,0 +1,19 @@
+<!-- search-results.ejs -->
+<title>Issue Tracker</title>
+
+<!-- Assuming each container has a title and bugs properties -->
+<div class="container">
+<% containerList.forEach(container => { %>
+    <div class="container">
+      <h2 style="background-color: rgb(54, 54, 54); color: white;"><%= container.name %></h2>
+      <p><strong>Description:</strong> <%= container.description %></p>
+      <p><strong>Bugs:</strong> <%= container.options %></p>
+      <a href="/seeissues/<%= container.names %>">See all issues</a>
+    </div>
+  <% }) %>
+</div>
+<!-- seeissues.ejs -->
+
+
+
+  

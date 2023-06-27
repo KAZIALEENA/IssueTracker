@@ -1,0 +1,14 @@
+<title>Issue Tracker</title>
+<title>Issue Tracker</title>
+<% if (containerList && containerList.length > 0) { %>  <!-- Check if containerList is defined and not empty -->
+  <% containerList.forEach(container => { %> <!-- Iterate over each container in containerList -->
+    <div class="container">
+      <h2><%= container.name %></h2> <!-- Render container name -->
+      <p><strong>Author:</strong> <%= container.author %></p> <!-- Render container author -->
+      <p><strong>Description:</strong> <%= container.description %></p> <!-- Render container description -->
+      <p><strong>Options:</strong> <%= container.options %></p> <!-- Render container options -->
+    </div>
+  <% }) %>
+<% } else { %>
+  <p>No data available</p>
+<% } %>

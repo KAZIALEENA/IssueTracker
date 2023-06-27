@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+    <style>
+      .checkbox-container label,
+ .checkbox-container input[type="checkbox"] {
+  display: block;
+}
+    </style>
+</head>
+<body>
+    <form action="/submit-form" method="POST">
+        <input type="hidden" name="containerId" value="<%= container._id %>">
+        <label for="title">Title:</label>
+        <input type="text" id="title"  name="title" required>
+      
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+      
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="options">Options:</label><br>
+          <input type="checkbox" id="option1" name="options" value="Designing and UI (User Interface)">
+          <label for="option1">Designing and UI (User Interface)</label><br>
+      
+          <input type="checkbox" id="option2" name="options" value="Speed and Performance.">
+          <label for="option2">Speed and Performance.</label><br>
+      
+          <input type="checkbox" id="option3" name="options" value="RunTimer Error">
+          <label for="option3">RunTimer Error</label><br>
+      
+          <input type="checkbox" id="option4" name="options" value="Bugs">
+          <label for="option4">Bugs</label><br>
+      
+          <input type="checkbox" id="option5" name="options" value="Server Not Found">
+          <label for="option5">Server Not Found</label><br><br>
+      
+      
+        <input type="submit" value="Submit" >
+      </form>
+      
+    
+</body>
+</html>

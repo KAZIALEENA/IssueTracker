@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Issue Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <title>HTML 5 Boilerplate</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <style>
+    html {
+      height: 100%;
+      width: 100%;
+      
+    }
+
+    center {
+      font-size: 50px;
+      color: white;
+      background-color: black;
+      font-family: monospace;
+    }
+
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-color: black;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+      padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto;
+      /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+      from {
+        -webkit-transform: scale(0)
+      }
+
+      to {
+        -webkit-transform: scale(1)
+      }
+    }
+
+    @keyframes animatezoom {
+      from {
+        transform: scale(0)
+      }
+
+      to {
+        transform: scale(1)
+      }
+    }
+    .button-container {
+      display: flex;
+      
+    }
+    
+    .button-container button {
+      margin-right: 9px;
+      width: 100px;
+      color: #000;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+
+    psw1 {
+      align-items: center;
+    }
+   
+
+#mySidenav a:hover {
+  right: 0;
+}
+.box{
+    width: 100%;
+    text-align:center;
+    margin: 10px;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+h1{
+  background-color: rgb(67, 67, 67);
+  color: white;
+}
+.checkbox-container label,
+ .checkbox-container input[type="checkbox"] {
+  display: block;
+}
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.checkbox-container label {
+  margin-bottom: 5px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Main content -->
+  <center><i class="fa fa-bug" style="font-size:48px;color:red"></i>Issue Tracker</center>
+
+  
+
+    <!-- Create Issue button -->
+
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create Issue</button>
+
+    <div id="id01" class="modal">
+
+      <!-- <form class="modal-content animate"  method="post"> -->
+        <div class="modal-content animate">
+          
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+            
+          </div>
+          
+        <%- include('issue.ejs') %>
+      </div>
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn">Cancel</button>
+          
+        </div>
+        
+        <!-- Search form -->
+      </div>
+
+      <div>
+        <%- include('serchTile.ejs') %>
+      </div>
+      
+    
+   
+  </div>
+    <!-- Container details -->
+  <div class="container">
+      <h1><strong> <%= container.name %></strong></h1>
+      <p><strong>Author:</strong> <%= container.author %></p>
+      <p><strong>Description:</strong> <%= container.description %></p>
+    
+      
+   
+
+      
+      <!-- Side navigation buttons --> 
+    <div id="mySidenav" class="sidenav">
+            <div class="button-container">
+              
+              <div>
+              <button style="background-color: #2196F3;" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Filter By Lables</button>
+              <div id="id02" class="modal">
+
+                <form class="modal-content animate" action="/filter-by-labels" method="post">
+                  <div class="imgcontainer">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                      title="Close Modal">&times;</span>
+                     <!-- container-details.ejs -->
+
+                     <form action="/filter-by-labels" method="POST">
+                     
+              
+                      <strong for="options">Lables:</strong><br>
+                        <input type="checkbox" id="option1" name="options" value="Designing and UI (User Interface)">
+                        <label for="option1">Designing and UI (User Interface)</label><br>
+                    
+                        <input type="checkbox" id="option2" name="options" value="Speed and Performance.">
+                        <label for="option2">Speed and Performance.</label><br>
+                    
+                        <input type="checkbox" id="option3" name="options" value="RunTimer Error">
+                        <label for="option3">RunTimer Error</label><br>
+                    
+                        <input type="checkbox" id="option4" name="options" value="Bugs">
+                        <label for="option4">Bugs</label><br>
+                    
+                        <input type="checkbox" id="option5" name="options" value="Server Not Found">
+                        <label for="option5">Server Not Found</label><br><br>
+                    
+                    
+                      <input type="submit" value="Submit" >
+                    </form>
+                     
+                     
+                 
+
+                      
+                      <!-- Existing code -->
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                                
+                  </div>
+          
+                  
+
+                  <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                      class="cancelbtn">Cancel</button>
+          
+                  </div>
+          
+                </form>
+              </div>
+              </div>
+              <button style="background-color: #f44336;"  onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Filter By Author</button>
+              <div id="id03" class="modal">
+
+                <form class="modal-content animate" action="/search" method="post">
+                  <div class="imgcontainer">
+                    <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                      title="Close Modal">&times;</span>
+                  </div>
+          
+                  <div class="container">
+                    <form action="/search" method="post">
+                      <input type="text" name="author" placeholder="Enter author name">
+                      <input type="text" name="description" placeholder="Enter description">
+                      <button type="submit">Search</button>
+                    </form>
+
+                  <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id03').style.display='none'"
+                      class="cancelbtn">Cancel</button>
+                    
+          
+                  </div>
+          
+                </form>
+             </div>
+             </div>
+             <%- include('allIssues.ejs') %>
+           
+
+                
+                <!-- container-details.ejs -->
+
+
+                
+  <script>
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+    var modal = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    var modal = document.getElementById('id0');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+var modal = document.getElementById('id03');
+
+var modal = document.getElementById('id04');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+  // Add an event listener to the button
+  document.getElementById("showFormButton").addEventListener("click", function() {
+    // Toggle the visibility of the form container
+    var formContainer = document.getElementById("formContainer");
+    formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
+  });
+
+</script>
+</body>
+
+</html>

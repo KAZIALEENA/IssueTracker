@@ -1,0 +1,19 @@
+<!-- search.ejs -->
+<title>Issue Tracker</title>
+<h2>Search Results</h2>
+
+<% if (searchResults.length > 0) { %>
+  <ul>
+    <% searchResults.forEach(project => { %>
+      <li>
+        <h3><%= project.name %></h3>
+        <p>Author: <%= project.author %></p>
+        <p>Description: <%= project.description %></p>
+        <!-- Display other project details as needed -->
+        <a href="/container/<%= project._id %>">View Details</a>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No results found.</p>
+<% } %>

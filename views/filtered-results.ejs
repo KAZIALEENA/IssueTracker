@@ -1,0 +1,29 @@
+<head>
+  <title>Issue Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <style>
+     center{
+      font-size: 50px;
+      color: white;
+      background-color: black;
+      font-family: monospace;
+  }
+  </style>
+<center><i class="fa fa-bug" style="font-size:48px;color:red"></i>Issue Tracker</center>
+<strong>Search Results</strong>
+<% if (data && data.length > 0) { %>
+    <% data.forEach(item => { %>
+      <div class="item">
+        <h2 style="background-color: rgb(65, 63, 63); color: white;"><%= item.name %></h2>
+        <p><strong>Author:</strong> <%= item.author %></p>
+        <p><strong>Label:</strong> <%= item.options %></p>
+        <p><strong>Description:</strong> <%= item.description %></p>
+        <!-- Display other item properties as needed -->
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No results available</p>
+  <% } %>
+  
