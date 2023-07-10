@@ -47,31 +47,7 @@ app.post("/container/:id", ContainerController.postContainer);
 
 
 
-/*app.post('/search', function(req, res) {
-    const name= req.body.name;
-    const author = req.body.author;
-    const description = req.body.description;
-  
-    // Build the search query using the $or operator
-    const query = {
-      $or: [
-        {name: name},
-        { author: author },
-        { description: description }
-      ]
-    };
-  
-    // Perform the search query based on the provided author and description
-    Project.find(query)
-      .then(searchResults => {
-        res.render('search', { searchResults });
-      })
-      .catch(error => {
-        console.error("Error retrieving search results:", error);
-        res.render("error", { error });
-      });
-  });*/
- 
+
 // Add routes
 app.use('/search', searchRoute);
 
@@ -125,22 +101,7 @@ app.post("/submit-form", function(req, res) {
 
 });
 
-/*app.post('/filter-by-labels', function(req, res) {
-    const labelsToFilter = req.body.options || []; // Array of labels selected in the form
-  
-    Issue.find({ options: { $in: labelsToFilter } })
-      .then(filteredData => {
-        // Pass the filtered data to the view for rendering
-        res.render('filtered-results', { data: filteredData });
-      })
-      .catch(error => {
-        console.error('Error retrieving data:', error);
-        // Handle the error
-        res.status(500).json({ error: 'An error occurred' });
-      });
-  });*/
 
-  
   
 
 
@@ -168,42 +129,7 @@ app.post("/submit-form", function(req, res) {
       });
   });
   
-  /*app.get('/seeissues', async (req, res) => {
-    try {
-      // Retrieve the containerList data from the database
-      const containerList = await Issue.find();
-  
-      // Render the seeissues.ejs view and pass the containerList variable
-      res.render('seeissues', { containerList });
-    } catch (error) {
-      console.error("Error retrieving containerList:", error);
-      res.render("error", { error });
-    }
-  });
-  app.post('/seeissues/:name', async (req, res) => {
-    try {
-      const name = req.params.title; // Get the title from the URL parameter
-  
-      // Find the container by title
-      const containerList = await Issue.findOne({ name });
-  
-      if (!containerList) {
-        // Container not found
-        res.render('error', { error: 'Container not found.' });
-        return;
-      }
-  
-      const issues = containerList.issues; // Assuming the issues are stored in the 'issues' property of the container
-  
-      res.render('seeissues', { title, issues });
-      //res.render('container-details', { containerList: containerList });
-
-    } catch (error) {
-      console.error("Error retrieving container issues:", error);
-      res.render("error", { error });
-    }
-  });*/
-  
+ 
 
 app.listen(port, function(err){
     if (err){
