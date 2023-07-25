@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/pro_list_db');
+mongoose.connect('mongodb+srv://admin:admin123@cluster0.8olx8vv.mongodb.net/');
 
 const db = mongoose.connection;
 
