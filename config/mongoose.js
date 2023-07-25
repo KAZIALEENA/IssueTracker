@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect('mongodb+srv://admin:admin123@cluster0.8olx8vv.mongodb.net/');
+mongoose.connect('mongodb+srv://admin:admin123@cluster0.8olx8vv.mongodb.net/issuetracker');
 
 const db = mongoose.connection;
 
